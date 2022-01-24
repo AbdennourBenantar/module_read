@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-<<<<<<< HEAD
 from odoo import models, fields, api
 import pandas as pd
+from . import pgcnct
 
 
 class module_read_SQL(models.Model):
@@ -13,34 +13,18 @@ class module_read_SQL(models.Model):
     content=fields.Char(compute="read_sql",)
     
     def read_sql(self):
+        conn=pgcnct.connecct()
+        names=pgcnct.get_col_names(self.name,conn)
         import logging
         _logger = logging.getLogger(__name__)
-        _logger.debug("innnnnn")
+        _logger.debug("ee"+str(names))
         self.env.cr.execute('SELECT * FROM '+self.name)
         df=self.env.cr.fetchall()
-        df=pd.DataFrame(df)
+        df=pd.DataFrame(df,columns=names)
         _logger.debug(df)
         df=df.iloc[:,5:]
         df.to_csv("odoo\\addons\\module_read\\foo.csv")
         self.content=df
-
-
-
-class module_read_ORM(models.Model):
-    _name = 'orm.orm'
-    _description = 'Accéder à la BDD (ORM)'
-
-    name = fields.Char()
-    value = fields.Integer()
-=======
-
-from re import T, VERBOSE
-from pandas.core.frame import DataFrame
-import pandas as pd
-import numpy as np
-
-from odoo import models, fields, api
-
 
 
 
@@ -60,23 +44,25 @@ class cols(models.Model):
 class orm(models.Model):
     _name = 'orm.orm'
     _description = 'orm.orm'
-    colonnes= fields.One2many('orm.cols','colonne',"Champs de la table" )
-    date_min = fields.Datetime(string= 'récupérer à partir de')
+    name = fields.Char(string='Name of the table')
     status = fields.Char(string='status', compute='recupererBDD' , default='Dataframe non récupéré')
 
-    
 
-    @api.onchange('colonne')
+    @api.depends('status')
     def recupererBDD(self):
+        list = []
+        headers = self.env[self.name].fields_get().keys()
+        for key in headers:
+            list.append((str(key),str(key))) 
         df = pd.DataFrame()      
         for r in self:
-                recset = self.env['execution.predicting__house_prices'].search([('create_date', '>=', r.date_min)])
-        for col in self.colonnes :        
+                recset = self.env[self.name].search([])
+        for col in list[:-7] :        
                 l = []
-                l =recset.mapped(col.name)
-                df[col.name] = pd.Series(l)      
+                l =recset.mapped(col[0])
+                df[col[0]] = pd.Series(l)      
         self.status = 'Dataframe récupéré'
-        df.to_csv('/Users/mac/Downloads/odoo/addons/orm/data.csv',index=False)
+        df.to_csv('C:/Users/benantaa/Documents/odoo 14 entreprise/server/odoo/addons/module_read/data.csv',index=False)
 
   
         
@@ -84,4 +70,3 @@ class orm(models.Model):
 
         
 
->>>>>>> bef7355de715c0ccbebc53637f993d9d4b55a26b

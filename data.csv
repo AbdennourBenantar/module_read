@@ -1,4 +1,6 @@
-area,__last_update,create_uid,False
-8,2022-01-21 10:23:59.478475,"res.users(1,)","execution.predicting__house_prices(1,)"
-9,2022-01-21 10:24:07.996314,,"execution.predicting__house_prices(2,)"
-0,2022-01-21 10:37:11.069681,,"execution.predicting__house_prices(3,)"
+area,Room,Parking,Warehouse,Elevator,Address,house_price
+10,1,True,True,False,10,178496.9010369822
+10,2,True,True,False,0,178496.9010369822
+20,1,True,True,False,20,178496.9010369822
+10,2,True,True,False,2,178496.9010369822
+10,2,True,True,False,0,178496.9010369822
