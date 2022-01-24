@@ -1,2 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+<<<<<<< HEAD
 access_module_read_module_read,module_read.module_read,model_module_read_module_read,base.group_user,1,1,1,1
+=======
+access_orm_orm,orm.orm,model_orm_orm,base.group_user,1,1,1,1
+>>>>>>> bef7355de715c0ccbebc53637f993d9d4b55a26b

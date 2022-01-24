@@ -2,6 +2,7 @@
 # from odoo import http
 
 
+<<<<<<< HEAD
 # class ModuleRead(http.Controller):
 #     @http.route('/module_read/module_read/', auth='public')
 #     def index(self, **kw):
@@ -17,5 +18,22 @@
 #     @http.route('/module_read/module_read/objects/<model("module_read.module_read"):obj>/', auth='public')
 #     def object(self, obj, **kw):
 #         return http.request.render('module_read.object', {
+=======
+# class Orm(http.Controller):
+#     @http.route('/orm/orm/', auth='public')
+#     def index(self, **kw):
+#         return "Hello, world"
+
+#     @http.route('/orm/orm/objects/', auth='public')
+#     def list(self, **kw):
+#         return http.request.render('orm.listing', {
+#             'root': '/orm/orm',
+#             'objects': http.request.env['orm.orm'].search([]),
+#         })
+
+#     @http.route('/orm/orm/objects/<model("orm.orm"):obj>/', auth='public')
+#     def object(self, obj, **kw):
+#         return http.request.render('orm.object', {
+>>>>>>> bef7355de715c0ccbebc53637f993d9d4b55a26b
 #             'object': obj
 #         })

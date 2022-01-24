@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 {
+<<<<<<< HEAD
     'name': "module_read",
+=======
+    'name': "ORM",
+>>>>>>> bef7355de715c0ccbebc53637f993d9d4b55a26b
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
