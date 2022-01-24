@@ -3,9 +3,9 @@
   <record model="ir.actions.act_window" id="module_read.action_window">
       <field name="name">module_read window</field>
       <field name="res_model">siquel.siquel</field>
-      </record>
+  </record>
 
-    <record model="ir.ui.view" id="orm_form">
+  <record model="ir.ui.view" id="orm_form">
       <field name="name">ORM form</field>
       <field name="model">orm.orm</field>
       <field name="arch" type="xml">
@@ -14,23 +14,14 @@
           
         </tree>
       </field>
-    </record>
- 
-    <!-- actions opening views on models -->
-
-    <record model="ir.actions.act_window" id="orm_action_window">
+  </record>
+  
+  <record model="ir.actions.act_window" id="orm_action_window">
       <field name="name">ORM window</field>
       <field name="res_model">orm.orm</field>
       <field name="view_mode">tree,form</field>
-    </record>
-
-
-    
-
+  </record>
     <menuitem name="Module Read BDD" id="module_read.menu_root"/>
-
-    <!-- menu categories -->
-
     <menuitem name="SQL (petite porte)" id="module_read.menu_1" parent="module_read.menu_root" action="module_read.action_window"/>
     <menuitem name="ORM" id="module_read.menu_2" parent="module_read.menu_root" action="orm_action_window"/>
 </data>

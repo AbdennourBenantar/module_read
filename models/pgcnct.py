@@ -6,7 +6,6 @@ _logger = logging.getLogger(__name__)
 db_host = 'localhost'
 db_name = 'lias'
 db_password = 'benantar'
-
 db_user = 'abdenour'
 
 def connecct():
