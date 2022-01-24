@@ -9,8 +9,6 @@ import numpy as np
 from odoo import models, fields, api
 
 
-
-
 class cols(models.Model):
     _name = 'orm.cols'
     _description = 'orm.cols'
