@@ -23,7 +23,7 @@ class module_read_SQL(models.Model):
         df=pd.DataFrame(df,columns=names)
         _logger.debug(df)
         df=df.iloc[:,5:]
-        df.to_csv("odoo\\addons\\module_read\\foo.csv")
+        df.to_csv("odoo\\addons\\module_read\\foo.csv",index=False)
         self.content=df
 
 
